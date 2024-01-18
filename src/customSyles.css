@@ -1,0 +1,65 @@
+.popup-container {
+    position: fixed;
+    width: 95%;
+    height: 95%;
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;*/
+    /* justify-content: space-between; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border: 5px solid wheat;
+    border-radius: 20px;
+    z-index: 1000; /* Adjust the z-index as needed */
+}
+/* body::-webkit-scrollbar-thumb{
+    background-color: rgb(15,23,42);
+} */
+/* WebKit-based browsers */
+::-webkit-scrollbar {
+    width: 12px; /* Adjust width as needed */
+    /* border-radius: 10px; */
+    background-color: rgb(15,23,42);
+}
+  
+::-webkit-scrollbar-thumb {
+   background-color: rgb(76, 84, 102); /* Adjust color as needed */
+}
+  
+.fadeIn {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fadeOut {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.closing-button {
+    position: absolute;
+    top: 0;
+    margin: 10px;
+    right: 10px;
+    background-color: #ff0000; /* Red color, adjust as needed */
+    color: #ffffff; /* White text color, adjust as needed */
+    padding: 10px;
+    border: 2px solid #000000; /* Black border, adjust as needed */
+    cursor: pointer;
+    font-size: 14px; /* Adjust font size as needed */
+    border-radius: 5px;
+}
+
+.closing-button:hover {
+    background-color: #cc0000; /* Darker red color on hover, adjust as needed */
+}
+*{
+    /* animation: all 1s ease-in-out; */
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
