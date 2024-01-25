@@ -4,26 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="bg-slate-800 text-neutral-400 font-Ubuntu ">
-    <nav class="flex flex-row justify-between bg-slate-950 mb-5 w-full overflow-hidden">
-      <p class="text-3xl text-red-300 font-bold p-2 m-6 tracking-wider">Souvik's Cousin</p>
-      <div class="hidden sm:flex m-6 text-2xl  flex-row justify-between w-1/3">
-          <div id="home-btn" class="mr-5">
-              <button class="w-auto p-2 bg-red-400 text-white text-base rounded-lg">Home</button>
-          </div>
-          <div class="ml-5 mr-5 text-base">
-              <input type="text" placeholder="Search Recipes ..." class="rounded p-2">
-          </div>
-      </div>
+  <body class="bg-slate-800 text-neutral-400 font-Ubuntu">
+    <nav
+    class="flex flex-row justify-between bg-slate-950 mb-5 w-full overflow-hidden"
+  >
+    <p class="text-3xl text-red-300 font-bold p-2 m-6 tracking-wider">
+      Souvik's Cousin
+    </p>
+    <div id="home-btn">
+      <button
+        class="w-auto p-2 m-8 bg-red-400 text-white text-base tracking-wider rounded-lg"
+      >
+        Home
+      </button>
+    </div>
   </nav>
 
     <script>
-      const homeBtn = document.querySelector('#home-btn');
-      homeBtn.addEventListener('click', (e)=>{
-              e.preventDefault();
-              window.location.href = 'index.html';
+      const homeBtn = document.querySelector("#home-btn");
+      homeBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = "index.html";
       });
       let docBody = document.body;
       let meal = localStorage.getItem("recipe");
@@ -38,9 +41,37 @@
       let instructions = document.createElement("p");
       let MealthumbImg = document.createElement("img");
       title.innerHTML = mealName;
-      title.classList.add('text-2xl', 'text-center', 'tracking-tight', 'text-neutral-400', 'transition-all', 'duration-300', 'ease-in-out', 'hover:text-white');
-      area.classList.add('text-lg', 'tracking-tight', 'text-neutral-300', 'transition-all', 'duration-300', 'ease-in-out', 'hover:text-white', 'pl-3', 'pt-3');
-      catagory.classList.add('text-lg', 'tracking-tight', 'text-neutral-300', 'transition-all', 'duration-300', 'ease-in-out', 'hover:text-white', 'pl-3');
+      title.classList.add(
+        "text-2xl",
+        "text-center",
+        "tracking-tight",
+        "text-neutral-400",
+        "transition-all",
+        "duration-300",
+        "ease-in-out",
+        "hover:text-white"
+      );
+      area.classList.add(
+        "text-lg",
+        "tracking-tight",
+        "text-neutral-300",
+        "transition-all",
+        "duration-300",
+        "ease-in-out",
+        "hover:text-white",
+        "pl-3",
+        "pt-3"
+      );
+      catagory.classList.add(
+        "text-lg",
+        "tracking-tight",
+        "text-neutral-300",
+        "transition-all",
+        "duration-300",
+        "ease-in-out",
+        "hover:text-white",
+        "pl-3"
+      );
       catagory.innerHTML = `Type : ${recipe.meals[0].strCategory}`;
       instructions.innerHTML = recipe.meals[0].strInstructions;
       area.innerHTML = `Origin : ${recipe.meals[0].strArea}`;
@@ -48,52 +79,68 @@
       docBody.append(title);
       docBody.append(area);
       // docBody.append(catagory)
-      for(let i =0; i<20; i++){
-        let ingredients = "strIngredient"+ (i+1);
-        let measurements = "strMeasure"+ (i+1);
+      for (let i = 0; i < 20; i++) {
+        let ingredients = "strIngredient" + (i + 1);
+        let measurements = "strMeasure" + (i + 1);
         let msmrnt = null;
         let thumb = null;
         let ingrdnt = null;
-        if(recipe.meals[0][measurements] !== null && recipe.meals[0][measurements] !== ""){
+        if (
+          recipe.meals[0][measurements] !== null &&
+          recipe.meals[0][measurements] !== ""
+        ) {
           // console.log(recipe.meals[0][measurements])
           msmrnt = recipe.meals[0][measurements];
         }
-        if(recipe.meals[0][ingredients] !== null && recipe.meals[0][ingredients] !== "" ){
+        if (
+          recipe.meals[0][ingredients] !== null &&
+          recipe.meals[0][ingredients] !== ""
+        ) {
           let name = recipe.meals[0][ingredients];
           thumb = searchIngrdThumb(name);
           ingrdnt = name;
         }
-        if(msmrnt !== null && ingrdnt !== null && thumb !== null){
-          procedureArray.push({measurement: msmrnt, ingradinet: ingrdnt, thumbImg: thumb});
-          msmrnt=null;
-          thumb=null;
-          ingrdnt=null;
+        if (msmrnt !== null && ingrdnt !== null && thumb !== null) {
+          procedureArray.push({
+            measurement: msmrnt,
+            ingradinet: ingrdnt,
+            thumbImg: thumb,
+          });
+          msmrnt = null;
+          thumb = null;
+          ingrdnt = null;
         }
-      };
-      async function searchIngrdThumb(name){
-        let searchThumbUrl = "https://www.themealdb.com/images/ingredients/"+name+'.png';
+      }
+      async function searchIngrdThumb(name) {
+        let searchThumbUrl =
+          "https://www.themealdb.com/images/ingredients/" + name + ".png";
         let thumbImg = await fetch(searchThumbUrl);
         return thumbImg;
       }
       async function processProcedureArray() {
-        let parentDiv = document.createElement('div');
-        parentDiv.classList.add('flex', 'flex-row', 'flex-wrap', 'justify-evenly')
+        let parentDiv = document.createElement("div");
+        parentDiv.classList.add(
+          "flex",
+          "flex-row",
+          "flex-wrap",
+          "justify-evenly"
+        );
         for (const elem of procedureArray) {
-          let ingrDiv = document.createElement('div');
-          let imgDiv = document.createElement('div');
-          let img = document.createElement('img');
-          console.log(elem)
+          let ingrDiv = document.createElement("div");
+          let imgDiv = document.createElement("div");
+          let img = document.createElement("img");
+          console.log(elem);
           try {
             const res = await elem.thumbImg;
             const url = res.url;
 
             img.src = url;
-            img.alt = 'meal image';
-            img.classList.add('p-2');
+            img.alt = "meal image";
+            img.classList.add("p-2");
 
             imgDiv.appendChild(img);
           } catch (error) {
-            console.error('Error fetching image:', error);
+            console.error("Error fetching image:", error);
           }
           // console.log(elem.ingradinet)
           ingrDiv.innerHTML = `
@@ -113,7 +160,7 @@
           parentDiv.append(ingrDiv);
         }
         // docBody.append(parentDiv)
-        let flexDiv = document.createElement('div');
+        let flexDiv = document.createElement("div");
         flexDiv.innerHTML = `
           <div class="m-5 flex flex-col justify-between sm:flex-row sm: ">
             <div>
@@ -131,21 +178,20 @@
             </div>
           </div>
         `;
-        docBody.append(flexDiv)
-        let istructionsWraper = document.createElement('div');
+        docBody.append(flexDiv);
+        let istructionsWraper = document.createElement("div");
         istructionsWraper.innerHTML = `
           <div class='flex flex-col p-5'>
             <h3 class="text-xl text-center p-3">Instructions</h3>
-            <div class='tracking-wide'>
+            <div class='tracking-wide text-justify'>
               ${instructions.innerHTML}
             </div>
           </div>
         `;
-        docBody.append(istructionsWraper)
+        docBody.append(istructionsWraper);
       }
 
-processProcedureArray();
-
+      processProcedureArray();
     </script>
   </body>
 </html>
