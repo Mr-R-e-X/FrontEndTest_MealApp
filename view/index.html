@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal App</title>
+    <!-- Style links -->
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/CustomStyles.css" />
+  </head>
+  <body class="bg-slate-800 text-neutral-400 font-Ubuntu">
+    <!-- Navbar starts -->
+    <nav
+      class="flex flex-row justify-between bg-slate-950 mb-5 w-full overflow-hidden"
+    >
+      <p
+        id="home"
+        class="home-btn text-3xl text-red-300 font-bold p-2 m-6 tracking-wider cursor-pointer"
+      >
+        Souvik's Cousin
+      </p>
+      <div class="home-btn hidden sm:flex cursor-pointer">
+        <button
+          class="w-auto p-2 m-8 bg-red-400 text-white text-base tracking-wider rounded-lg"
+        >
+          Home
+        </button>
+      </div>
+    </nav>
+    <!-- Navbar Ends -->
+    <!-- Main Starts -->
+    <main>
+      <!-- Welcome msg and brief description about the app -->
+      <div class="text-center tracking-wider flex flex-row justify-between">
+        <img
+          class="hidden sm:block w-40 h-40 object-cover ml-5 rounded-full"
+          src="https://pics.craiyon.com/2023-10-31/e8740499a2cd44c2a1bf26d384ebc142.webp"
+          alt=""
+        />
+        <div id="page-title">
+          <h1
+            class="text-2xl sm:text-5xl m-2 transition-all duration-300 ease-in-out hover:text-white"
+          >
+            Welcome to Souvik's Cousin
+          </h1>
+          <p
+            class="text-base sm:text-xl transition-all duration-300 ease-in-out hover:text-white"
+          >
+            Souvik's Cousin &nbsp;:&nbsp; An open, crowd-sourced database of
+            Recipes from around the world.
+          </p>
+          <!-- Meal Searcing form -->
+          <form id="search-form" class="mt-4 px-4">
+            <div class="flex items-center justify-center">
+              <input
+                type="search"
+                id="search-recipes"
+                placeholder="Search for a Meal..."
+                class="px-4 py-2 border rounded-l-md focus:outline-none"
+                required
+              />
+              <button
+                class="bg-slate-500 text-xl text-white px-4 py-2 rounded-r-md hover:bg-slate-950"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+          <!-- Meal Searching form ends here -->
+        </div>
+        <img
+          class="hidden sm:block w-40 h-40 object-cover mr-5 rounded-full"
+          src="https://pics.craiyon.com/2023-07-05/4107513677e44015bd4fc2803c70bf5d.webp"
+          alt=""
+        />
+      </div>
+      <!-- Welcome msg and brief description ends here -->
+      <hr class="h-2 mb-3 mt-4" />
+      <!-- Horizontal devider -->
+      <!-- Randome Meal section starts here -->
+      <div>
+        <h1
+          class="text-center text-3xl tracking-wider mb-5 transition-all duration-300 ease-in-out hover:text-white"
+        >
+          Randome Meals
+        </h1>
+        <div
+          id="randome-meals"
+          class="flex flex-row flex-wrap justify-evenly"
+        ></div>
+      </div>
+      <!-- Randome Meal section ends here -->
+      <hr class="h-2 mb-3 mt-4" />
+      <!-- Horizontal devider -->
+      <!-- Popular Ingredients section starts here -->
+      <div>
+        <!-- title  -->
+        <h1
+          class="text-center text-3xl tracking-wider mb-5 transition-all duration-300 ease-in-out hover:text-white"
+        >
+          Popular Ingredients
+        </h1>
+        <!-- chicken -->
+        <div
+          id="popular-ingredients"
+          class="flex flex-row flex-wrap justify-evenly"
+        >
+          <div class="mb-5 popular-ingreddients cursor-pointer" data="Chicken">
+            <div
+              class="w-full max-w-40 rounded-lg m-2 transition-all duration-300 ease-in-out hover:bg-black hover:shadow-lg hover:shadow-white"
+            >
+              <img
+                class="p-3 rounded"
+                src="https://www.themealdb.com/images/ingredients/Chicken.png"
+                alt="ingredients image"
+              />
+              <div class="px-1 pb-2">
+                <h5
+                  class="text-lg text-center font-semibold tracking-tight text-neutral-400 transition-all duration-300 ease-in-out hover:text-white"
+                >
+                  Chicken
+                </h5>
+              </div>
+            </div>
+          </div>
+          <!-- Salmon -->
+          <div class="mb-5 popular-ingreddients cursor-pointer" data="Salmon">
+            <div
+              class="w-full max-w-40 rounded-lg m-2 transition-all duration-300 ease-in-out hover:bg-black hover:shadow-lg hover:shadow-white"
+            >
+              <img
+                class="p-3 rounded"
+                src="https://www.themealdb.com/images/ingredients/Salmon.png"
+                alt="ingredients image"
+              />
+              <div class="px-1 pb-2">
+                <h5
+                  class="text-lg text-center font-semibold tracking-tight text-neutral-400 transition-all duration-300 ease-in-out hover:text-white"
+                >
+                  Salmon
+                </h5>
+              </div>
+            </div>
+          </div>
+          <!-- Beef -->
+          <div class="mb-5 popular-ingreddients cursor-pointer" data="Beef">
+            <div
+              class="w-full max-w-40 rounded-lg m-2 transition-all duration-300 ease-in-out hover:bg-black hover:shadow-lg hover:shadow-white"
+            >
+              <img
+                class="p-3 rounded"
+                src="https://www.themealdb.com/images/ingredients/Beef.png"
+                alt="ingredients image"
+              />
+              <div class="px-1 pb-2">
+                <h5
+                  class="text-lg text-center font-semibold tracking-tight text-neutral-400 transition-all duration-300 ease-in-out hover:text-white"
+                >
+                  Beef
+                </h5>
+              </div>
+            </div>
+          </div>
+          <!-- Pork -->
+          <div class="mb-5 popular-ingreddients cursor-pointer" data="Pork">
+            <div
+              class="w-full max-w-40 rounded-lg m-2 transition-all duration-300 ease-in-out hover:bg-black hover:shadow-lg hover:shadow-white"
+            >
+              <img
+                class="p-3 rounded"
+                src="https://www.themealdb.com/images/ingredients/Pork.png"
+                alt="ingredients image"
+              />
+              <div class="px-1 pb-2">
+                <h5
+                  class="text-lg text-center font-semibold tracking-tight text-neutral-400 transition-all duration-300 ease-in-out hover:text-white"
+                >
+                  Pork
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Popular Ingredients section endss here -->
+      <hr class="h-2 mb-3 mt-4" />
+      <!-- Horizontal devider -->
+      <!-- Filter By Country section starts here -->
+      <div>
+        <!-- title -->
+        <h3
+          class="text-center text-3xl tracking-wider mb-5 transition-all duration-300 ease-in-out hover:text-white"
+        >
+          Browse Country
+        </h3>
+        <!-- India -->
+        <div
+          id="browseCountry"
+          class="flex flex-row flex-wrap justify-evenly p-5"
+        >
+          <div>
+            <img src="https://flagsapi.com/IN/flat/64.png" name="Indian" />
+          </div>
+          <!-- England -->
+          <div>
+            <img src="https://flagsapi.com/GB/flat/64.png" name="British" />
+          </div>
+          <!-- America -->
+          <div>
+            <img src="https://flagsapi.com/US/flat/64.png" name="American" />
+          </div>
+          <!-- France -->
+          <div>
+            <img src="https://flagsapi.com/FR/flat/64.png" name="French" />
+          </div>
+          <!-- Canada -->
+          <div>
+            <img src="https://flagsapi.com/CA/flat/64.png" name="Canadian" />
+          </div>
+          <!-- Jamaica -->
+          <div>
+            <img src="https://flagsapi.com/JM/flat/64.png" name="Jamaican" />
+          </div>
+          <!-- China -->
+          <div>
+            <img src="https://flagsapi.com/CN/flat/64.png" name="Chinese" />
+          </div>
+          <!-- Netharlands -->
+          <div>
+            <img src="https://flagsapi.com/NL/flat/64.png" name="Dutch" />
+          </div>
+          <!-- Egypt -->
+          <div>
+            <img src="https://flagsapi.com/EG/flat/64.png" name="Egyptian" />
+          </div>
+          <!-- Greece -->
+          <div>
+            <img src="https://flagsapi.com/GR/flat/64.png" name="Greek" />
+          </div>
+          <!-- Ireland -->
+          <div>
+            <img src="https://flagsapi.com/IE/flat/64.png" name="Irish" />
+          </div>
+          <!-- Italy -->
+          <div>
+            <img src="https://flagsapi.com/IT/flat/64.png" name="Italian" />
+          </div>
+          <!-- Japan -->
+          <div>
+            <img src="https://flagsapi.com/JP/flat/64.png" name="Japanese" />
+          </div>
+          <!-- Kenya -->
+          <div>
+            <img src="https://flagsapi.com/KE/flat/64.png" name="Kenyan" />
+          </div>
+          <!-- Malaysia -->
+          <div>
+            <img src="https://flagsapi.com/MY/flat/64.png" name="Malaysian" />
+          </div>
+          <!-- Mexico -->
+          <div>
+            <img src="https://flagsapi.com/MX/flat/64.png" name="Mexican" />
+          </div>
+          <!-- Morroco -->
+          <div>
+            <img src="https://flagsapi.com/MA/flat/64.png" name="Moroccan" />
+          </div>
+          <!-- Croatia -->
+          <div>
+            <img src="https://flagsapi.com/HR/flat/64.png" name="Croatian" />
+          </div>
+          <!-- Norway -->
+          <div>
+            <img src="https://flagsapi.com/NO/flat/64.png" name="Norway" />
+          </div>
+          <!-- Portugal -->
+          <div>
+            <img src="https://flagsapi.com/PT/flat/64.png" name="Portuguese" />
+          </div>
+          <!-- Russia -->
+          <div>
+            <img src="https://flagsapi.com/RU/flat/64.png" name="Russian" />
+          </div>
+          <!-- Argentina -->
+          <div>
+            <img src="https://flagsapi.com/AR/flat/64.png" name="Argentines" />
+          </div>
+          <!-- Spain -->
+          <div>
+            <img src="https://flagsapi.com/ES/flat/64.png" name="Spanish" />
+          </div>
+          <!-- Slokovia -->
+          <div>
+            <img src="https://flagsapi.com/SK/flat/64.png" name="Slovaks" />
+          </div>
+          <!-- Thailand -->
+          <div>
+            <img src="https://flagsapi.com/TH/flat/64.png" name="Thai" />
+          </div>
+          <!-- Saudi Arabia -->
+          <div>
+            <img
+              src="https://flagsapi.com/SA/flat/64.png"
+              name="Saudi Arabian"
+            />
+          </div>
+          <!-- Vietnam -->
+          <div>
+            <img src="https://flagsapi.com/VN/flat/64.png" name="Vietnamese" />
+          </div>
+          <!-- Turkey -->
+          <div>
+            <img src="https://flagsapi.com/TR/flat/64.png" name="Turkish" />
+          </div>
+          <!-- Syria -->
+          <div>
+            <img src="https://flagsapi.com/SY/flat/64.png" name="Syrian" />
+          </div>
+          <!-- Algeria -->
+          <div>
+            <img src="https://flagsapi.com/DZ/flat/64.png" name="Algerians" />
+          </div>
+          <!-- Tunisia -->
+          <div>
+            <img src="https://flagsapi.com/TN/flat/64.png" name="Tunisian" />
+          </div>
+          <!-- Poland -->
+          <div>
+            <img src="https://flagsapi.com/PL/flat/64.png" name="Polish" />
+          </div>
+          <!-- Philippines -->
+          <div>
+            <img src="https://flagsapi.com/PH/flat/64.png" name="Filipino" />
+          </div>
+        </div>
+      </div>
+      <!-- Filter By Country section ends here -->
+      <hr class="h-2 mb-3 mt-4" />
+      <!-- Horizontal devider -->
+      <!-- Randome Ingredients section starts here -->
+      <div>
+        <!-- title -->
+        <h3
+          class="text-center text-3xl tracking-wider mb-5 transition-all duration-300 ease-in-out hover:text-white"
+        >
+          Randome Ingredients
+        </h3>
+        <!-- ingredients div -->
+        <div
+          id="randomeIngr"
+          class="flex flex-row flex-wrap justify-evenly"
+        ></div>
+      </div>
+      <!-- Randome Ingredients section ends here -->
+      <hr class="h-2 mb-3 mt-4" />
+      <!-- Horizontal devider -->
+      <!-- Filter By Alphabates section srarts here -->
+      <div>
+        <!-- title -->
+        <h3
+          class="text-center text-3xl tracking-wider mb-5 transition-all duration-300 ease-in-out hover:text-white"
+        >
+          Browse Meals
+        </h3>
+        <!-- List of Alphabates -->
+        <h2 id="alphabates" class="p-5 text-center font-bold">
+          <span class="font-bold text-red-300" val="A"> &nbsp; A &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="B"> &nbsp; B &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="C"> &nbsp; C &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="D"> &nbsp; D &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="E"> &nbsp; E &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="F"> &nbsp; F &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="G"> &nbsp; G &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="H"> &nbsp; H &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="I"> &nbsp; I &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="J"> &nbsp; J &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="K"> &nbsp; K &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="L"> &nbsp; L &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="M"> &nbsp; M &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="N"> &nbsp; N &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="O"> &nbsp; O &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="P"> &nbsp; P &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="Q"> &nbsp; Q &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="R"> &nbsp; R &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="S"> &nbsp; S &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="T"> &nbsp; T &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="U"> &nbsp; U &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="V"> &nbsp; V &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="W"> &nbsp; W &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="X"> &nbsp; X &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="Y"> &nbsp; Y &nbsp; </span>
+          /
+          <span class="font-bold text-red-300" val="Z"> &nbsp; Z &nbsp; </span>
+        </h2>
+      </div>
+      <!-- Filter By Alphabates section srarts here -->
+    </main>
+    <!-- Main ends -->
+    <hr class="h-2 mb-3 mt-4" />
+    <!-- Horizontal devider -->
+    <!-- Footer Section Starts -->
+    <footer>
+      <p class="text-center">The End of The Cousin.</p>
+      <a href="#page-title"
+        ><p class="text-center text-2xl font-bold">
+          Back to <span class="text-red-500"> Top </span> !!!
+        </p></a
+      >
+      <p class="text-center">Thank You.</p>
+    </footer>
+    <!-- Footer Section Ends -->
+  </body>
+  <!-- link of Script tags -->
+  <script src="../script/script.js"></script>
+  <!-- Home Button Function -->
+  <script>
+    const homeBtn = document.querySelectorAll(".home-btn");
+    homeBtn.forEach((elem) => {
+      // console.log(elem)
+      elem.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = "index.html";
+      });
+    });
+  </script>
+</html>
