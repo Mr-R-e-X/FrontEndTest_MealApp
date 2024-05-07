@@ -1,14 +1,14 @@
 // Home Button controller
 const homeBtn = document.querySelectorAll(".home-btn");
-homeBtn.forEach((elem)=>{
+homeBtn.forEach((elem) => {
   // console.log(elem)
   elem.addEventListener("click", (e) => {
-  e.preventDefault();
-  window.location.href = "index.html";
-  })
+    e.preventDefault();
+    window.location.href = "../index.html";
+  });
 });
 // Selectors
-let Main = document.querySelector('main');
+let Main = document.querySelector("main");
 // Collecting the data from the local storage
 let meal = localStorage.getItem("recipe");
 let mealName = localStorage.getItem("recipeName");
@@ -58,7 +58,7 @@ catagory.classList.add(
 catagory.innerHTML = `Type : ${recipe.meals[0].strCategory}`;
 instructions.innerHTML = recipe.meals[0].strInstructions;
 area.innerHTML = `Origin : ${recipe.meals[0].strArea}`;
-MealthumbImg.src = recipe.meals[0].strMealThumb; 
+MealthumbImg.src = recipe.meals[0].strMealThumb;
 // appending to the Main
 Main.append(title);
 Main.append(area);
@@ -107,12 +107,7 @@ async function processProcedureArray() {
   // Parent div of cards
   let parentDiv = document.createElement("div");
   // Adding classes
-  parentDiv.classList.add(
-    "flex",
-    "flex-row",
-    "flex-wrap",
-    "justify-evenly"
-  );
+  parentDiv.classList.add("flex", "flex-row", "flex-wrap", "justify-evenly");
   // Itrating in procedureArray to make the HTML card
   for (const elem of procedureArray) {
     // Creating HTML element for card structure

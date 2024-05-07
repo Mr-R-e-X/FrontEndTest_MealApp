@@ -30,7 +30,7 @@ async function randomeMealData() {
     const results = await fetch(randomeMeal_url);
     const data = await results.json();
     if (data === null) {
-      window.location.href = "sorry.html";
+      window.location.href = "./dist/sorry.html";
     } else {
       // Itrating on the data and making the cards
       data.meals.forEach((meal) => {
@@ -67,7 +67,7 @@ document.addEventListener("click", (e) => {
 });
 // function to control the clicks on randome meal cards
 async function handleClickMealCard(mealName) {
-// api url
+  // api url
   let searchByName_url =
     "https://www.themealdb.com/api/json/v1/1/search.php?s=" + mealName;
   // fetching the data
@@ -78,9 +78,9 @@ async function handleClickMealCard(mealName) {
   localStorage.setItem("recipe", recipe);
   localStorage.setItem("recipeName", mealName);
   // redirecting to the recipe page
-  window.location.href = "recipe.html";
+  window.location.href = "./dist/recipe.html";
 }
-// Handaling clicks on Popular Ingredients 
+// Handaling clicks on Popular Ingredients
 async function SearchByIngredientsData(ingredients) {
   // api url
   const url = searchByIngredients_url + ingredients;
@@ -92,7 +92,7 @@ async function SearchByIngredientsData(ingredients) {
   localStorage.setItem("searchByIngredients", dataAsString);
   localStorage.setItem("ingredient", ingredients);
   // redirecting to meal page
-  window.location.href = "meal.html";
+  window.location.href = "./dist/meal.html";
 }
 // Handaling the Search btn
 async function handleSearchBtn(meal) {
@@ -105,14 +105,14 @@ async function handleSearchBtn(meal) {
   // checking the data
   if (data.meals === null) {
     console.log("inside of null!");
-    window.location.href = "sorry.html";
+    window.location.href = "./dist/sorry.html";
   } else {
     let recipe = JSON.stringify(data);
     // saving the data to local storage
     localStorage.setItem("recipe", recipe);
     localStorage.setItem("recipeName", meal);
     // redirecting to the recipe page
-    window.location.href = "recipe.html";
+    window.location.href = "./dist/recipe.html";
   }
 }
 // handaling the clicking on the Browse Meal section
@@ -132,19 +132,19 @@ async function searchByAlphabates(alphabate) {
   let alphabate_url =
     "https://www.themealdb.com/api/json/v1/1/search.php?f=" + alphabate;
   // fetching the data
-    let result = await fetch(alphabate_url);
+  let result = await fetch(alphabate_url);
   let data = await result.json();
   // checking the data
   if (data.meals === null) {
     // if null redirecting the sorry page
-    window.location.href = "sorry.html";
+    window.location.href = "./dist/sorry.html";
   } else {
     const dataAsString = JSON.stringify(data);
     // saving the data in loacl storage
     localStorage.setItem("searchByIngredients", dataAsString);
     localStorage.setItem("ingredient", alphabate);
     // redirecting to the meal page
-    window.location.href = "meal.html";
+    window.location.href = "./dist/meal.html";
   }
 }
 // handeling the clicks on the country flags
@@ -153,7 +153,7 @@ browseByCountry.addEventListener("click", (e) => {
   // collecting the name of the country from attribute
   let country = e.target.getAttribute("name");
   // checcking the data
-  if(country !== null){
+  if (country !== null) {
     // calling the handeller function
     browseByArea(country);
   }
@@ -164,19 +164,19 @@ async function browseByArea(country) {
   let country_url =
     "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + country;
   // fetching the data
-    let result = await fetch(country_url);
+  let result = await fetch(country_url);
   let data = await result.json();
   // checking the data
   if (data.meals === null) {
     // if data is null then redirecting to the sorry page
-    window.location.href = "sorry.html";
+    window.location.href = "./dist/sorry.html";
   } else {
     const dataAsString = JSON.stringify(data);
     // saving the data to local storage
     localStorage.setItem("searchByIngredients", dataAsString);
     localStorage.setItem("ingredient", country);
     // redirecting to the meal page
-    window.location.href = "meal.html";
+    window.location.href = "./dist/meal.html";
   }
 }
 // Handeling the randome ingredients section
@@ -238,17 +238,16 @@ async function searchIngrdThumb(name) {
   return thumbImg;
 }
 // handleing the clicks on the randomeIngredients cards
-randomeIngrds.addEventListener('click', (e)=>{
+randomeIngrds.addEventListener("click", (e) => {
   e.preventDefault();
   // collecting the data from the attribute
-  let ingr = e.target.getAttribute('data');
+  let ingr = e.target.getAttribute("data");
   // cheking the data
-  if(ingr !== null){
+  if (ingr !== null) {
     // calling the handeller function
     SearchByIngredientsData(ingr);
   }
-})
-
+});
 
 // calling the Fecth functions
 randomIngredients();

@@ -61,7 +61,7 @@ mainDiv.append(ingredientsDiv);
 homeBtn.forEach((elem) => {
   elem.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
   });
 });
 // Handaling the clicks on the Meal Card
